@@ -5,5 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Topic.create(title: 'Rails Blah Blah', description: 'rails application nlah blah blah blah blah', focus: "not sure what to put here")

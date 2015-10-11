@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_book, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,14 +7,14 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new
+    @topic = current_user.topics.build
   end
 
   def show
   end
 
   def create
-    @topic = Topic.new(topic_params)
+    @topic = current_user.topics.build(topic_params)
 
     if @topic.save
       redirect_to root_path
@@ -34,12 +35,14 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    @topic.destroy
+    redirect_to root_path
   end
 
   private
 
     def topic_params
-      params.require(:topic).permit(:title, :description, :focus)
+      params.require(:topic).permit(:title, :description, :focus, :topic_img)
     end
 
     def find_book
