@@ -1,3 +1,8 @@
-<% @topics.each do |topic| %>
+<div class='container'>
+  <h1>
+    <div class='center-logo'>Iron Topics</div>
+  </h1>
+  <% @topics.each do |topic| %>
   <h2><%= link_to topic.title, topic_path(topic) %></h2>
-<% end %>
+  <% end %>
+</div>

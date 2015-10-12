@@ -1,21 +1,20 @@
 <div class="container">
-
-  <h1><%= @topic.title %></h1>
-  <h3>Focus: <%= @topic.focus %></h3>
+    <h1><%= @topic.title %></h1>
+    <h3>Focus: <%= @topic.focus %></h3>
 
 
 
     <% if @topic.user_id == current_user.id %>
-      <%= link_to 'Edit', edit_topic_path(@topic) %>
-      <%= link_to 'Delete', topic_path(@topic), method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
+    <%= link_to 'Edit', edit_topic_path(@topic) %>
+    <%= link_to 'Delete', topic_path(@topic), method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
     <% else %>
-      <%= link_to 'Add Interest', new_topic_review_path(@topic) %>
+    <%= link_to 'Add Interest', new_topic_review_path(@topic) %>
     <% end %>
 
     <br>
     <br>
     <% if @topic.topic_img.exists? %>
-      <%= image_tag @topic.topic_img.url(:topic_show), class: "topic-show" %>
+    <%= image_tag @topic.topic_img.url(:topic_show), class: "topic-show" %>
     <% end %>
 
     <p><%= @topic.description %></p>
