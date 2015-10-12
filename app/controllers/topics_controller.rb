@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_book, only: [:show, :edit, :update, :destroy]
+  before_action :find_topic, only: [:show, :edit, :update, :destroy]
 
   def index
     @topics = Topic.all.order("created_at DESC")
@@ -45,7 +45,7 @@ class TopicsController < ApplicationController
       params.require(:topic).permit(:title, :description, :focus, :topic_img)
     end
 
-    def find_book
+    def find_topic
       @topic = Topic.find(params[:id])
     end
 

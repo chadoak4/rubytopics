@@ -3,20 +3,22 @@
   <h1><%= @topic.title %></h1>
   <h3>Focus: <%= @topic.focus %></h3>
 
-  <% if @topic.user_id == current_user.id %>
 
-    <%= link_to 'Edit', edit_topic_path(@topic) %>
-    <%= link_to 'Delete', topic_path(@topic), method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
 
-  <% end %>
+    <% if @topic.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_topic_path(@topic) %>
+      <%= link_to 'Delete', topic_path(@topic), method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
+    <% else %>
+      <%= link_to 'Add Interest', new_topic_review_path(@topic) %>
+    <% end %>
 
-  <br>
-  <br>
+    <br>
+    <br>
+    <% if @topic.topic_img.exists? %>
+      <%= image_tag @topic.topic_img.url(:topic_show), class: "topic-show" %>
+    <% end %>
 
-  <%= image_tag @topic.topic_img.url(:topic_show), class: "topic-show" %>
+    <p><%= @topic.description %></p>
 
-  <p><%= @topic.description %></p>
-
-  <%= link_to "Back", root_path %>
-
+    <%= link_to "Back", root_path %>
 </div>
