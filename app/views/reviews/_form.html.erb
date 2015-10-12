@@ -1,4 +1,4 @@
-<%= simple_form_for([@topic, @topic.reviews.build]) do |f| %>
+<%= simple_form_for([@topic, @topic.reviews.new]) do |f| %>
   <%= f.input  :rating %>
   <%= f.input  :comment %>
   <%= f.button :submit %>
