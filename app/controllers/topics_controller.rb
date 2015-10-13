@@ -34,10 +34,10 @@ class TopicsController < ApplicationController
     end
   end
 
-  def destroy
-    @topic.destroy
-    redirect_to root_path
-  end
+  # def destroy
+  #   @topic.destroy
+  #   redirect_to root_path
+  # end
 
   private
 

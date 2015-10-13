@@ -6,9 +6,9 @@
 
     <% if @topic.user_id == current_user.id %>
     <%= link_to 'Edit', edit_topic_path(@topic) %>
-    <%= link_to 'Delete', topic_path(@topic), method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
+    <!-- <%= link_to 'Delete', topic_path(@topic), method: :delete, data: { confirm: "Are you sure you want to delete?"} %>-->
     <% else %>
-    <%= link_to 'Add Interest', new_topic_review_path(@topic) %>
+    <%= link_to 'Rate and Comment', new_topic_review_path(@topic) %>
     <% end %>
 
     <br>
@@ -20,4 +20,5 @@
     <p><%= @topic.description %></p>
 
     <%= link_to "Back", root_path %>
+    <%= render @topic.reviews %>
 </div>
