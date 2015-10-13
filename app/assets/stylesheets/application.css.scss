@@ -21,7 +21,7 @@
 
 body{
   background: image-url('back2.png');
-  color: #000000;
+  background-attachment: fixed;
 }
 .navbar{
   margin-bottom: 0px;
@@ -32,4 +32,10 @@ p {
 
 .divider{
   text-align: center;
+}
+
+.rating-comment {
+  font-size: 14px;
+  font-weight: bold;
+  padding-right: 5px;
 }

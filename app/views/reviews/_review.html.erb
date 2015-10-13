@@ -1,5 +1,5 @@
 <% @topic.reviews.each do |review|%>
   <h5><strong>User: <%= review.user.email %></strong></h5>
-  <li><h5><strong>Rating:</strong></h5><%= review.rating %></li>
-  <li><h5><strong>Comment:</strong></h5><%= review.comment%></li>
+  <li><span class="rating-comment">Rating:</span><%= review.rating %></li>
+  <li><span class="rating-comment">Comment:</span><%= review.comment %></li>
 <% end %>
